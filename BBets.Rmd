@@ -1,7 +1,7 @@
 ---
 title: "Brownlow's Bets"
-author: "Put your name here!"
-date: "put the date here"
+author: "Dr. J"
+date: "24 Jan 2020"
 output: html_document: default
  ---
 
@@ -12,10 +12,19 @@ output: html_document: default
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
 
  At the first day of class there are 35 students in Math Statistics class and professor Brownlow always proposes this bet to his students "I will wager $2 to your bet of $1 that at least two people in today's class have the same birthday.  Brownlow has made this bet 21 times, so far. Where do you think his profits are? Discuss this in a markdown document
+ 
+To analyze this problem, I'm going to simulate the process a large number of time, summarize the results
 
 # Methods
 
 <!--Decide on your methods:  In this section explain the approach you will take to attack the issue --- how will you decide on a likely estimate of professor Brownlow's earnings or losses after 21 bets. Also explain how you construct a 95% confidence interval about your estimate of his winnings !-->
+
+Methods are set up a R-object that contains every day of the year, take out a sample of size 35, see how many times I win/lose.  And I'll keep track of the $$
+
+```{r}
+library(rmarkdown)
+days = 1:365
+```
 
 
 # Profit Estimate
