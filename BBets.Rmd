@@ -8,7 +8,6 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
 # Introduction
 
 The question is how much money is won/lost on a bet that at least two people have the same b'day in a class of 35.  Instructor wagers 2:1 
@@ -22,14 +21,17 @@ Instuctor has done this 15 times,
 ```{r}
 days = 1:365
 
+nStudents = 28
+nBets = nStudents*15
+
 saveArray=vector('numeric')
 for(k in 1:1000){
   bank = 0
-  for(i in 1:525){
-    sampleClass = sample(days, 25, replace = TRUE)
+  for(i in 1:nBets){
+    sampleClass = sample(days, nStudents, replace = TRUE)
 
     repeats = length(unique(sampleClass))
-    if (repeats == 35) bank = bank - 2
+    if (repeats == nStudents) bank = bank - 2
     else bank = bank + 1
   }
 saveArray[k]= bank
@@ -50,4 +52,10 @@ print('average amt:')
 print(mean(saveArray))
 ```
 
+
+The amount of money Dr. J should pay is $-15.41
+
+The number of students for break even at 2:1 is 2
+
+The of students for break even at 2:1 is 28
   
